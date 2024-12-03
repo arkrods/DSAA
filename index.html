@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <img src="DSA.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#homepage">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img class="hero-logo" src="DSA.png" alt="Hero Logo">
+                <h1>E. NAÑO | CC 104 | IT2A</h1>
+                <p>FINAL REQUIREMENT WEBSITE</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-download">members</button>
+                </div>
+            </div>
+
+            <div id="membersModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('membersModal')">&times;</span>
+                    <h2>List of Members</h2>
+                    <ul id="membersList">
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-boxes">
+            <div class="box" onclick="openModal('arrayModal')">
+                <h3>Array</h3>
+                <p>Python Implementation of Arrays.</p>
+            </div>
+            <div class="box" onclick="openModal('sortingModal')">
+                <h3>Sorting</h3>
+                <p>Python Implementation of Sorting Algorithms.</p>
+            </div>
+            <div class="box" onclick="openModal('linkedListModal')">
+                <h3>Linked List</h3>
+                <p>Python Implementation of Linked Lists.</p>
+            </div>
+            <div class="box" onclick="openModal('stackModal')">
+                <h3>Stack</h3>
+                <p>Python Implementation of Stack Algorithms.</p>
+            </div>
+            <div class="box" onclick="openModal('queueModal')">
+                <h3>Queue</h3>
+                <p>Python Implementation of Queue Algorithms.</p>
+            </div>
+            <div class="box" onclick="openModal('treesModal')">
+                <h3>Trees</h3>
+                <p>Python Implementation of Tree Traversal.</p>
+            </div>
+        </section>
+
+        <div id="arrayModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('arrayModal')">&times;</span>
+                <h2>Array - Python Implementation</h2>
+                <div class="content">
+                    <h4>Pseudocode:</h4>
+                    <pre>
+Create an array
+Assign values to the array
+Access or modify elements using index
+                        </pre>
+                    <h4>Python Code:</h4>
+                    <pre class="code">
+class Array:
+    def __init__(self, size):
+        self.array = [0] * size  # Initialize array with zeros
+
+    def set(self, index, value):
+        self.array[index] = value
+
+    def get(self, index):
+        return self.array[index]
+
+# Example usage
+arr = Array(5)
+arr.set(0, 10)
+print(arr.get(0))  # Output: 10
+
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="queueModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('queueModal')">&times;</span>
+                <h2>Queue - Python Implementation</h2>
+                <div class="content">
+                    <h4>Pseudocode:</h4>
+                    <pre>
+Enqueue: Add an element at the rear
+Dequeue: Remove an element from the front
+                    </pre>
+                    <h4>Python Code:</h4>
+                    <pre class="code">
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, data):
+        self.queue.append(data)
+
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0)
+        return None
+
+    def is_empty(self):
+        return len(self.queue) == 0
+
+    def front(self):
+        return self.queue[0] if not self.is_empty() else None
+
+# Example usage
+q = Queue()
+q.enqueue(10)
+q.enqueue(20)
+q.enqueue(30)
+print(q.dequeue())  # Output: 10
+print(q.front())    # Output: 20
+
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="sortingModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('sortingModal')">&times;</span>
+                <h2>Sorting Algorithms</h2>
+                <div class="content">
+                    <button onclick="showAlgorithm('bubble')">Bubble Sort</button>
+                    <button onclick="showAlgorithm('insertion')">Insertion Sort</button>
+                    <button onclick="showAlgorithm('selection')">Selection Sort</button>
+                    <button onclick="showAlgorithm('merge')">Merge Sort</button>
+                    <button onclick="showAlgorithm('quick')">Quick Sort</button>
+                    <div id="sortingContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="linkedListModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('linkedListModal')">&times;</span>
+                <h2>Linked List - Python Implementation</h2>
+                <div class="content">
+                    <button onclick="showLinkedList('single')">Single Linked List</button>
+                    <button onclick="showLinkedList('double')">Double Linked List</button>
+                    <button onclick="showLinkedList('circular')">Circular Linked List</button>
+                    <div id="linkedListContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="stackModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('stackModal')">&times;</span>
+                <h2>Stack Algorithms</h2>
+                <div class="content">
+                    <button onclick="showStack('infix')">Infix</button>
+                    <button onclick="showStack('prefix')">Prefix</button>
+                    <button onclick="showStack('postfix')">Postfix</button>
+                    <div id="stackContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="treesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('treesModal')">&times;</span>
+                <h2>Trees - Python Implementation</h2>
+                <div class="content">
+                    <button onclick="showTree('inorder')">Inorder</button>
+                    <button onclick="showTree('preorder')">Preorder</button>
+                    <button onclick="showTree('postorder')">Postorder</button>
+                    <div id="treeContent"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Web Design Project. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
